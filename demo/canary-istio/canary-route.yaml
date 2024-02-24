@@ -1,0 +1,20 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: canary-demo
+    app.kubernetes.io/component: canary-demo
+    app.kubernetes.io/instance: canary-demo
+  name: canary-demo
+spec:
+  host: 
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: canary-demo
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
