@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: rollout-vsvc
+spec:
+  gateways:
+  - istio-rollout-gateway
+  hosts:
+  - canary-demo
+  http:
+  - name: primary        # referenced in canary.trafficRouting.istio.virtualService.routes
+    route:
+    - destination:
+        host: canary-demo # referenced in canary.stableService
+      weight: 100
+    - destination:
+        host: canary-demo-preview # referenced in canary.canaryService
+      weight: 0
