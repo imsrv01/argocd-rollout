@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: canary-istio-dest
-        image: nexus.unionbank.com:8180/opn/helloangular:v0.0.0-rc.1
+        image: argoproj/rollouts-demo:blue
         imagePullPolicy: Always
         ports:
         - name: http
