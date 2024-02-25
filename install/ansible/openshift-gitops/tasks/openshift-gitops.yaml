@@ -14,3 +14,8 @@
   retries: 30
   delay: 10
 
+- name: Create rolebinding
+  k8s:
+    state: present
+    definition: "{{ lookup('file', 'rolebinding.yaml') }}"
+    wait: yes
