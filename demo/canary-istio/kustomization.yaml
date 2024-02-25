@@ -9,8 +9,6 @@ generatorOptions:
     
 resources:
 - namespace.yaml
-- secret-nexus-registry-pull.yaml
-- serviceaccount-default.yaml
 - RolloutManager.yaml
 - canary-rollout.yaml
 - canary-service.yaml
