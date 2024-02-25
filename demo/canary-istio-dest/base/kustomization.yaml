@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
 - RolloutManager.yaml
-- service-mesh-member-roll.yaml
 - rollout.yaml
 - service.yaml
 - gateway.yaml
