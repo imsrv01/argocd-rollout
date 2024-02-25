@@ -20,13 +20,13 @@ spec:
     spec:
       containers:
       - name: canary-istio-dest
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:green
         imagePullPolicy: Always
         ports:
         - name: http
           containerPort: 8080
           protocol: TCP
-        resources:
+        resources:s
           requests:
             memory: 32Mi
             cpu: 5m
