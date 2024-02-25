@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: canary-istio-dest
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: canary-istio-dest
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: demo/canary-istio-dest/env/dev
+    repoURL: https://github.com/imsrv01/argocd-rollout.git
+    targetRevision: main
