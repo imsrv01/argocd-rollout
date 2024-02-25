@@ -10,6 +10,7 @@ generatorOptions:
 resources:
 - namespace.yaml
 - RolloutManager.yaml
+- service-mesh-member-roll.yaml
 - canary-rollout.yaml
 - canary-service.yaml
 - canary-route.yaml
