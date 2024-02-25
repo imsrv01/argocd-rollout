@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: canary-istio-dest
+spec:
+  replicas: 2
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: canary-istio-dest
+      app.kubernetes.io/name: canary-istio-dest
+  template:
+    metadata:
+      labels:
+        app: canary-istio-dest
+        app.kubernetes.io/name: canary-istio-dest
+        maistra.io/expose-route: 'true'
+      annotations:
+        sidecar.istio.io/inject: 'true'        
+    spec:
+      containers:
+      - name: canary-istio-dest
+        image: nexus.unionbank.com:8180/opn/helloangular:v0.0.0-rc.1
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
+  strategy:
+    canary:
+      trafficRouting:
+        istio:
+          virtualService:
+            name: canary-istio-dest        # required
+            routes:
+            - primary                 # optional if there is a single route in VirtualService, required otherwise
+          destinationRule:
+            name: canary-istio-dest    # required
+            canarySubsetName: canary  # required
+            stableSubsetName: stable  # required    
+      steps:
+      - setWeight: 50
+      - pause: {}
