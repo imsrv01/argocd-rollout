@@ -4,5 +4,5 @@
   tasks:
   - name: install OpenShift Gitops
     import_role:
-      name: ocp4-install-cicd
+      name: openshift-gitops
       tasks_from: openshift-gitops.yaml

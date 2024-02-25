@@ -1,8 +1,0 @@
----
-- name: Install OpenShift Gitops
-  hosts: localhost
-  tasks:
-  - name: install OpenShift Gitops
-    import_role:
-      name: ocp4-install-cicd
-      tasks_from: openshift-gitops.yaml
