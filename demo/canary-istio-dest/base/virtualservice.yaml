@@ -8,7 +8,7 @@ spec:
   hosts:
     - canary-istio-dest
     - canary-istio-dest.canary-istio-dest.svc.cluster.local
-    - canary-istio-dest-canary-istio-dest.apps.rosa.rosalab2.kq62.p3.openshiftapps.com
+    - canary-istio-dest-canary-istio-dest.apps.rosa.rosalab2.ismk.p3.openshiftapps.com
   http:
   - name: primary        # referenced in canary.trafficRouting.istio.virtualService.routes
     route:
