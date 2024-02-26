@@ -54,6 +54,10 @@ Namesace - istio-system
 
 Login to argocd console and check the deployed app
 
+Sync
+
+Update deployed route and enable edge termination..
+
 Update image in rollout and commit
 
 Promote rollout
