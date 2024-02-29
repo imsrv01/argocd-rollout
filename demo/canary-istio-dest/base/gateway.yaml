@@ -12,4 +12,4 @@ spec:
       protocol: HTTP
       targetPort: 8080
     hosts:
-    - canary-istio-dest-canary-istio-dest.apps.rosa.rosalab2.ismk.p3.openshiftapps.com
+    - canary-istio-dest-canary-istio-dest.apps.rosa.rosalab2.hv3w.p3.openshiftapps.com
