@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: canary-istio-dest
-        image: argoproj/rollouts-demo:green
+        image: argoproj/rollouts-demo:blue
         imagePullPolicy: Always
         ports:
         - name: http
